@@ -1,8 +1,12 @@
+//script developed to store daily data trends for business with long conversion window and several conversions being tracked in account, 
+//this data is not by default accessible inside google ads platform
+
 function main(){
   var ss = SpreadsheetApp.openByUrl([INSERT YOUR SPREADSHEET URL]);
+  //create a new empty spreadsheet and add your url
   var sheet = ss.getActiveSheet();
 
-
+//to get data on specific conversion name you need a separate query
   var query = `
     SELECT campaign.name, metrics.all_conversions, metrics.view_through_conversions, segments.conversion_action_name, segments.date
     FROM campaign
@@ -70,6 +74,8 @@ function main(){
 
 
       }
+  
+  // Exports data of default conversion & cost, cost is not available on conversions name split
  var query3 =`
     SELECT campaign.name, metrics.conversions, metrics.view_through_conversions, metrics.cost_micros, segments.date
     FROM campaign
