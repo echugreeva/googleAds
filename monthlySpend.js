@@ -1,3 +1,7 @@
+//script sends email notification once your monthly budget is exceeded on 80%, script runs everyday,
+//on a monthly basis you need to update your current month budget
+//you can tweak at which % of spend you want the nothification as well
+
 function main() {
   var limit = [INSERT YOUR MONTHLY BUDGET HERE] * 0.8 ;
 
